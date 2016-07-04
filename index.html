@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	#main{width: 108px;height: 101px;overflow:hidden;border:1px solid black;cursor: pointer;}
+	#pic{width: 2376px;height: 101px;}
+	#pic img{float: left;padding-left: 108px;}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="pic">
+			<img src="images/h.png" alt="">	<img src="images/x.png" alt="">		
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var main=document.getElementById("main")
+	var pic=document.getElementById("pic")
+	var autoNum=0;
+	var time,time1,time2,time3,time4;
+	var judge=true;
+	var Num=11;
+	var autoNum1=10;
+	var Num1=21;
+	var flag=true;
+	// window.onload=small();
+	window.onload=big();
+
+
+	function on1(){
+		autoNum1--;
+			main.scrollLeft=autoNum1*108;
+			if (autoNum1==0) {
+				clearInterval(time3);
+				
+			};
+		
+		}
+
+	main.onclick=function(){
+		clearInterval(time1)			
+		time3=setInterval(on1, 100)	
+		}
+
+
+
+
+	// function on2(){
+	// 	Num1--;
+	// 	main.scrollLeft=Num1*108;
+	// 	if (Num1==11) {
+	// 		clearInterval(time4);
+	// 	};
+	
+	// }
+
+	// main.onclick=function(){
+	// 	clearInterval(time2)			
+	// 	time4=setInterval(on2, 100)	
+	// }
+	
+
+
+
+	function move1(){
+		
+		if (flag) {
+			autoNum++;
+			main.scrollLeft=autoNum*108;
+			if (autoNum==5) {
+			flag=false;
+			};
+			
+		}else{
+			autoNum--;
+			main.scrollLeft=autoNum*108;
+			if (autoNum==0) {
+				flag=true;
+				clearInterval(time1);
+			};
+			
+		}	
+		
+	}
+	function big(){
+		time1=setInterval(move1, 200);
+	}
+	
+
+
+	// function move2(){
+		
+	// 	if (flag) {
+		
+	// 		Num++;
+	// 		main.scrollLeft=Num*108;
+	// 		if (Num==16) {
+	// 		flag=false;
+	// 		};
+			
+	// 	}else{
+	// 		Num--;
+	// 		main.scrollLeft=Num*108;
+	// 		if (Num==11) {
+				
+	// 			clearInterval(time2);
+	// 		};
+			
+	// 	}	
+		
+	// }
+	// function small(){
+	// 	time2=setInterval(move2, 200)
+	// }
+	
+	
+</script>
+</html>
