@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>锅砸灰太狼5</title>
+	<style type="text/css">
+	#wrap{width: 320px; height: 480px;margin:50px auto;position: relative;}
+	#score{position: absolute; left: 65px; top: 12px;color: white;font-size: 20px;font-weight: bolder;}
+	#plan{width: 180px;height: 16px;overflow:hidden;position: relative;background: blue;left: 63px;top: -417px;border-radius: 16px; }
+	#message #plan img{position: absolute;width: 180px;height: 16px;border-radius: 16px;}
+	#message span{position: absolute;left: 52px;top: 200px;font-size: 50px;color: red;cursor: pointer;transition:color 0.5s,font-size 0.5s;/*display: none;*/}
+	#message span:hover{color: blue;font-size: 55px;}
+	#main .round0{width: 108px;height: 101px;overflow: hidden;cursor: pointer;}
+	#main .round1{width: 2376px;height: 101px;}
+	#main img{float: left;padding-left: 108px;}
+	#main1{position: absolute;left: 97px;top: 116px;cursor: pointer;}
+	#main2{position: absolute;left: 185px;top: 142px;}
+	#main3{position: absolute;left: 17px;top: 160px;}
+    #main4{position: absolute;left: 102px;top: 192px;}
+    #main5{position: absolute;left: 197px;top: 213px;}
+    #main6{position: absolute;left: 14px;top: 221px;}
+ 	#main7{position: absolute;left: 117px;top: 274px;}
+  	#main8{position: absolute;left: 29px;top: 295px;}
+   	#main9{position: absolute;left: 206px;top: 295px;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<img src="images/game_bg.jpg" alt="">
+		<div id="score">0</div>		
+		<div id="main">
+			<div id="main1" class="round0">
+				<div class="round1" id="pic1">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>				
+			</div>
+			<div id="main2" class="round0">
+				<div class="round1" id="pic2">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main3" class="round0">
+				<div class="round1" id="pic3">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main4" class="round0">
+				<div class="round1" id="pic4">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main5" class="round0">
+				<div class="round1" id="pic5">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main6" class="round0">
+				<div class="round1" id="pic6">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main7" class="round0">
+				<div class="round1" id="pic7">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main8" class="round0">
+				<div class="round1" id="pic8">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+			<div id="main9" class="round0">
+				<div class="round1" id="pic9">
+					<img src="images/h.png" alt="" >
+					<img src="images/x.png" alt="">
+				</div>	
+			</div>
+		</div>
+		<div id="message">
+			<span id="span">开始游戏</span>
+			<div id="plan">
+				<img src="images/progress.png" id="progress">
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var wrap=document.getElementById("wrap");
+	// console.log(wrap);
+	var score=document.getElementById("score");
+	// console.log(score);
+	var message=document.getElementById("message");
+	// console.log(message)
+	var span=document.getElementById("span");
+	// console.log(span);
+	var plan=document.getElementById("plan");
+	// console.log(plan);
+	var progress=document.getElementById("progress");
+	// console.log(progress);
+	var main=document.getElementById("main");
+	// console.log(main);
+	var mains=main.getElementsByClassName("round0")
+	console.log(mains)
+	var rounds=main.getElementsByClassName("round1")
+	console.log(rounds)
+	var main1=document.getElementById("main1")
+	// console.log(main1);
+	var pic1=document.getElementById("pic1");
+	// console.log(pic1);
+
+	var time,time1,time2,time3,time4;
+	var t=0;
+	var m=0;
+	var n=0;	
+	var autoNum=0;
+	var Num=11;
+	var autoNum1=10;
+	var Num1=21;
+	var judge=true;
+	var flag=true;	
+	var r=0;
+	// var y=0;
+	function clock(){
+		t++;
+		// console.log(t);
+		progress.style.left=-1.8*t+"px";
+		if (t==100) {
+			alert("游戏已结束");
+		}
+		
+		ture();		
+	}
+
+
+	function ture(){
+		m=parseInt(Math.random()*100);
+		n=Math.floor((Math.random()*9));
+	
+		console.log(n);
+		if (0<m&&m<70) {
+			judge=true;
+			console.log(judge);
+		}else{
+			judge=false;
+			console.log(judge);
+		}
+		move();		
+	}
+	span.onclick=function(){
+		time=setInterval(clock, 2000)
+		span.style.display="none";
+		
+	}
+
+
+	// 主循环
+	function move(){
+			if (judge) {
+			big()
+				if (time3) {
+					clearInterval(time3);
+				};
+				mains[n].onclick=function(){
+					mains[n].onclick=null;
+					time3=setInterval(on1, 50);
+					console.log(score.innerHTML);
+					// r=r+y;
+					r+=10;
+
+					score.innerHTML=r
+					console.log(score.innerHTML);
+				}
+		}
+		else{
+			small();
+			judge=true;
+			if (time4) {
+				clearInterval(time4);
+				};
+				mains[n].onclick=function(){
+					mains[n].onclick=null;
+					// clearInterval(time2)			
+					time4=setInterval(on2, 50)
+					// y=y+r
+					r-=10;
+					score.innerHTML=r
+					console.log(score.innerHTML);	
+				}			
+			}		
+	}	
+
+
+
+	
+	function on1(){
+			autoNum1--;
+			mains[n].scrollLeft=autoNum1*108;
+			if (autoNum1==0) {
+				clearInterval(time3);
+				autoNum1=10;
+			// 注意	autoNum1=10;		
+			};		
+		}
+	 function on2(){
+		Num1--;
+		mains[n].scrollLeft=Num1*108;
+		if (Num1==11) {
+			clearInterval(time4);
+			Num1=21;
+		};	
+	}
+	// 子函数big
+	function move1(){		
+		if (flag) {
+			autoNum++;
+			mains[n].scrollLeft=autoNum*108;
+			if (autoNum==5) {
+			flag=false;
+			};			
+		}else{			
+			autoNum--;
+			mains[n].scrollLeft=autoNum*108;
+			if (autoNum==0) {
+				flag=true;				
+				clearInterval(time1);
+			};		
+		}			
+	}
+	function big(){
+		time1=setInterval(move1, 100);
+	}
+  // 子函数small 
+	function move2(){		
+		if (flag) {		
+			Num++;
+			mains[n].scrollLeft=Num*108;
+			if (Num==16) {
+			flag=false;
+			};			
+		}else{			
+			Num--;
+			mains[n].scrollLeft=Num*108;
+			if (Num==11) {				
+				clearInterval(time2);
+				flag=true;
+			};			
+		}	
+	}
+	function small(){
+		time2=setInterval(move2, 100)
+	}
+
+</script>
+
+</html>
